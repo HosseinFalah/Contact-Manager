@@ -5,12 +5,13 @@ import './App.scss'
 
 const App = () => {
 
-  const [contacts, setContacts] = useState([])
+  const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   return (
     <>
       <Navbar/>
-      <Contacts contacts={contacts}/>
+      <Contacts contacts={contacts} loading={loading}/>
     </>
   );
 }
