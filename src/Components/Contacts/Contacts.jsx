@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Contacts.module.scss';
 import Contact from '../Contact/Contact';
+import ContactNotFound from '../ContactNotFound/ContactNotFound';
 
-const Contacts = () => {
+const Contacts = ({contacts}) => {
     return (
         <>
             <section className="container">
@@ -13,7 +14,11 @@ const Contacts = () => {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <Contact/>
+                        {contacts.length > 0 ? contacts.map((contact) => (
+                            <Contact key={contact.id}/>
+                        )): (
+                            <ContactNotFound/>
+                        )}
                     </div>
                 </div>
             </section>
