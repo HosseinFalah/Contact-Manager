@@ -1,0 +1,6 @@
+@mixin btn($padding, $margin, $rounded, $border) {
+    padding: $padding;
+    margin: $margin;
+    border-radius: $rounded;
+    border: $border;
+}
