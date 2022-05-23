@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Contacts from './Components/Contacts/Contacts';
-import Navbar from "./Components/Navbar/Navbar";
+import {Navbar, Contacts} from './Components'
 import './App.scss'
 
 const App = () => {
