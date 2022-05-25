@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {Navbar, Contacts} from './Components'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import './App.scss'
 
 const App = () => {
@@ -10,7 +11,10 @@ const App = () => {
   return (
     <>
       <Navbar/>
-      <Contacts contacts={contacts} loading={loading}/>
+        <Routes>
+          <Route path="/" element={<Navigate to="/contacts"/>}/>
+          <Route path='/contacts' element={<Contacts contacts={contacts} loading={loading}/>}/>
+        </Routes>
     </>
   );
 }
