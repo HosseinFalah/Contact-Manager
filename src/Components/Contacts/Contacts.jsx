@@ -17,7 +17,7 @@ const Contacts = ({contacts, loading}) => {
                     <div className="container">
                         <div className="row">
                             {contacts.length > 0 ? contacts.map((contact) => (
-                                <Contact key={contact.id}/>
+                                <Contact key={contact.id} contact={contact}/>
                             )): (
                                 <ContactNotFound/>
                             )}
