@@ -3,14 +3,15 @@ import styles from './Contacts.module.scss';
 import Contact from '../Contact/Contact';
 import ContactNotFound from '../ContactNotFound/ContactNotFound';
 import Spinner from './../Spinner/Spinner';
+import { Link } from 'react-router-dom';
 
 const Contacts = ({contacts, loading}) => {
     return (
         <>
             <section className="container">
                 <div className="row">
-                    <div className="col-md-4">
-                        <button className={`${styles.btn} ${styles.btn__purple}`}>ساخت مخاطب جدید<i className="fa fa-plus-circle mx-2"></i></button>
+                    <div className="col-md-4 p-4">
+                        <Link to={"/contacts/add"} className={`${styles.btn} ${styles.btn__purple}`}>ساخت مخاطب جدید<i className="fa fa-plus-circle mx-2"></i></Link>
                     </div>
                 </div>
                 {loading ? <Spinner/> : (

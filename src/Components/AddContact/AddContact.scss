@@ -1,0 +1,16 @@
+@import '../../Helpers/Colors/Colors.scss';
+
+.form-control{
+    background: $seconderyColor;
+    direction: rtl;
+    color: $Foreground;
+    &::placeholder{
+        color: $Foreground;
+    }
+    &:focus{
+        border: none;
+        background: $seconderyColor;
+        box-shadow: none;
+        color: $Foreground;
+    }
+}

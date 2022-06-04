@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Navbar, Contacts } from './Components'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { getAllContacts, getAllGroups } from './Services/contactServices'
+import { Navbar, Contacts, AddContact } from './Components'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import { getAllContacts, getAllGroups, createContact } from './Services/contactServices'
 import './App.scss'
 
 const App = () => {
@@ -9,6 +9,16 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [getGroups, setGroups] = useState([])
+  const [getContact, setContact] = useState({
+    fullname: "",
+    photo: "",
+    mobile: "",
+    email: "",
+    job: "",
+    group: ""
+  })
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const ferchData = async () => {
@@ -30,12 +40,30 @@ const App = () => {
     ferchData()
   }, [])
 
+  const createContactForm = async event => {
+    event.preventDefault()
+    try{
+      const {status} = await createContact(getContact)
+      if (status === 201) {
+        setContact({})
+        navigate("/contacts")
+      }
+    } catch(err){
+      console.log(err.message);
+    }
+  }
+
+  let setContactInfo = event => {
+    setContact({...getContact, [event.target.name]: event.target.value})
+  }
+
   return (
     <>
       <Navbar/>
         <Routes>
           <Route path="/" element={<Navigate to="/contacts"/>}/>
-          <Route path='/contacts' element={<Contacts contacts={contacts} loading={loading}/>}/>
+          <Route path="/contacts" element={<Contacts contacts={contacts} loading={loading}/>}/>
+          <Route path="/contacts/add" element={<AddContact loading={loading} setContactInfo={setContactInfo} contact={getContact} groups={getGroups} createContactForm={createContactForm}/>}/>
         </Routes>
     </>
   );
