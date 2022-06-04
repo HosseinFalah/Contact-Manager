@@ -7,6 +7,7 @@ import './App.scss'
 const App = () => {
 
   const [contacts, setContacts] = useState([]);
+  const [forceRender, setForceRender] = useState(false)
   const [loading, setLoading] = useState(false);
   const [getGroups, setGroups] = useState([])
   const [getContact, setContact] = useState({
@@ -36,9 +37,25 @@ const App = () => {
         setLoading(false)
       }
     }
-
     ferchData()
   }, [])
+
+  useEffect(() => {
+    const ferchData = async () => {
+      try{
+        setLoading(true)
+        const { data: _contactsData } = await getAllContacts();
+        setContacts(_contactsData)
+        setTimeout(() => {
+          setLoading(false)
+        }, 400)
+      } catch(err){
+        console.log(err.message);
+        setLoading(false)
+      }
+    }
+    ferchData()
+  }, [forceRender])
 
   const createContactForm = async event => {
     event.preventDefault()
@@ -46,6 +63,7 @@ const App = () => {
       const {status} = await createContact(getContact)
       if (status === 201) {
         setContact({})
+        setForceRender(!forceRender)
         navigate("/contacts")
       }
     } catch(err){
