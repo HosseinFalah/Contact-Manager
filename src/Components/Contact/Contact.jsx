@@ -20,7 +20,7 @@ const Contact = ({contact}) => {
                             </div>
                             <div className="col-md-1 col-sm-1 d-flex flex-column align-items-center">
                                 <Link to={`/contacts/${contact.id}`} className="btn my-1 btn-outline-success"><i className="fa fa-eye"></i></Link>
-                                <button className="btn my-1 btn-outline-warning"><i className="fa fa-pencil"></i></button>
+                                <Link to={`/contacts/edit/${contact.id}`} className="btn my-1 btn-outline-warning"><i className="fa fa-pencil"></i></Link>
                                 <button className="btn my-1 btn-outline-danger"><i className="fa fa-trash"></i></button>
                             </div>
                         </div>

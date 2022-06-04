@@ -1,7 +1,9 @@
 {
   "contacts": [
     {
-      "fullname": "امیر رضا حقی",
+      "fullname": [
+        "امیر رضا حقی"
+      ],
       "photo": "https://avatars.githubusercontent.com/u/88787993?v=4",
       "mobile": "09218995829",
       "email": "amirrezahaqi@gmail.com",
