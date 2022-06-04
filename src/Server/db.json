@@ -21,10 +21,14 @@
       "id": 3
     },
     {
-      "fullname": "حسین فلاح",
+      "fullname": [
+        "حسین فلاح"
+      ],
       "photo": "https://avatars.githubusercontent.com/u/98707258?v=4",
       "mobile": "09922477517",
-      "email": "hosseinfalah2o21@gmail.com",
+      "email": [
+        "hosseinfalah2021@gmail.com"
+      ],
       "job": "FullStackDeveloper",
       "group": "5",
       "id": 5

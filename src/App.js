@@ -83,7 +83,7 @@ const App = () => {
           <Route path="/contacts" element={<Contacts contacts={contacts} loading={loading}/>}/>
           <Route path="/contacts/add" element={<AddContact loading={loading} setContactInfo={setContactInfo} contact={getContact} groups={getGroups} createContactForm={createContactForm}/>}/>
           <Route path="/contacts/:contactId" element={<ViewContact/>}/>
-          <Route path="/contacts/edit/:contactId" element={<EditContact groups={getGroups}/>}/>
+          <Route path="/contacts/edit/:contactId" element={<EditContact setForceRender={setForceRender} forceRender={forceRender}/>}/>
         </Routes>
     </>
   );

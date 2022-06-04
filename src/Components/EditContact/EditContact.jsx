@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getAllGroups, getContact, updateContact } from '../../Services/contactServices';
 import Spinner from '../Spinner/Spinner';
 
-const EditContact = () => {
+const EditContact = ({forceRender, setForceRender}) => {
     const { contactId } = useParams();
     const navigate = useNavigate();
     const [state, setState] = useState({
@@ -45,6 +45,7 @@ const EditContact = () => {
             const { data } = await updateContact(state.contact, contactId)
             setState({...state, loading: false})
             if (data){
+                setForceRender(!forceRender)
                 navigate("/contacts")
             }
         }catch(err){
