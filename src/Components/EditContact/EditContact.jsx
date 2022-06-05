@@ -55,7 +55,6 @@ const EditContact = ({forceRender, setForceRender}) => {
     }
 
     const {loading, contact, groups} = state
-    console.log(groups);
     return (
         <>
             {loading ? (

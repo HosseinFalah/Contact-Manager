@@ -28,7 +28,6 @@ const ViewContact = () => {
         fetchData()
     }, [])
     const {loading, contact, group} = state
-    console.log(group);
     return (
         <>
             {loading ? (

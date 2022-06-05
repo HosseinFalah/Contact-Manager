@@ -19,6 +19,8 @@ const App = () => {
     job: "",
     group: ""
   })
+  const [query, setQuery] = useState({text: ""})
+  const [getFilterdContacts, setFilterdContacts] = useState([])
 
   const navigate = useNavigate()
 
@@ -29,6 +31,7 @@ const App = () => {
         const { data: _contactsData } = await getAllContacts();
         const { data: groupsData } = await getAllGroups();
         setContacts(_contactsData)
+        setFilterdContacts(_contactsData)
         setGroups(groupsData)
         setTimeout(() => {
           setLoading(false)
@@ -40,7 +43,7 @@ const App = () => {
     }
     ferchData()
   }, [])
-
+  
   useEffect(() => {
     const ferchData = async () => {
       try{
@@ -111,13 +114,21 @@ const App = () => {
       }
     })
   }
+ 
+  const contactSearch = event => {
+    setQuery({...query, text: event.target.value})
+    const allContacts = contacts.filter(contact => {
+      return contact.fullname.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    setFilterdContacts(allContacts)
+  }
 
   return (
     <>
-      <Navbar/>
+      <Navbar query={query} search={contactSearch}/>
         <Routes>
           <Route path="/" element={<Navigate to="/contacts"/>}/>
-          <Route path="/contacts" element={<Contacts contacts={contacts} loading={loading} RemoveContact={confirmRemoveContact}/>}/>
+          <Route path="/contacts" element={<Contacts contacts={getFilterdContacts} loading={loading} RemoveContact={confirmRemoveContact}/>}/>
           <Route path="/contacts/add" element={<AddContact loading={loading} setContactInfo={setContactInfo} contact={getContact} groups={getGroups} createContactForm={createContactForm}/>}/>
           <Route path="/contacts/:contactId" element={<ViewContact/>}/>
           <Route path="/contacts/edit/:contactId" element={<EditContact setForceRender={setForceRender} forceRender={forceRender}/>}/>
