@@ -99,7 +99,7 @@ const EditContact = ({forceRender, setForceRender}) => {
                                         </form>
                                     </div>
                                     <div className="col">
-                                        <img src={require("../../asset/Images/man-taking-note.png")} className="img-fluid" alt="Create-Contact" />
+                                        <img src={contact.photo} className="img-fluid" alt="Create-Contact" />
                                     </div>
                                 </div>
                             </div>

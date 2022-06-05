@@ -5,7 +5,7 @@ import ContactNotFound from '../ContactNotFound/ContactNotFound';
 import Spinner from './../Spinner/Spinner';
 import { Link } from 'react-router-dom';
 
-const Contacts = ({contacts, loading}) => {
+const Contacts = ({contacts, loading, RemoveContact}) => {
     return (
         <>
             <section className="container">
@@ -18,7 +18,7 @@ const Contacts = ({contacts, loading}) => {
                     <div className="container">
                         <div className="row">
                             {contacts.length > 0 ? contacts.map((contact) => (
-                                <Contact key={contact.id} contact={contact}/>
+                                <Contact key={contact.id} RemoveContact={() => RemoveContact(contact.id)} contact={contact}/>
                             )): (
                                 <ContactNotFound/>
                             )}

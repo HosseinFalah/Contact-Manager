@@ -1,17 +1,6 @@
 {
   "contacts": [
     {
-      "fullname": [
-        "امیر رضا حقی"
-      ],
-      "photo": "https://avatars.githubusercontent.com/u/88787993?v=4",
-      "mobile": "09218995829",
-      "email": "amirrezahaqi@gmail.com",
-      "job": "FrontEndDeveloper",
-      "group": "2",
-      "id": 1
-    },
-    {
       "fullname": "زینب جعفری",
       "photo": "https://avatars.githubusercontent.com/u/103099450?v=4",
       "mobile": "09218995829",
@@ -19,19 +8,6 @@
       "job": "NodeDeveloper",
       "group": "3",
       "id": 3
-    },
-    {
-      "fullname": [
-        "حسین فلاح"
-      ],
-      "photo": "https://avatars.githubusercontent.com/u/98707258?v=4",
-      "mobile": "09922477517",
-      "email": [
-        "hosseinfalah2021@gmail.com"
-      ],
-      "job": "FullStackDeveloper",
-      "group": "5",
-      "id": 5
     },
     {
       "fullname": "ابولفضل مرادی",
