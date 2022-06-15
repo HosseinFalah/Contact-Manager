@@ -63,16 +63,26 @@ const App = () => {
   }
 
   const removeContact = async contactId => {
+    //Contacts Copy
+    const allContact = [...contacts];
     try{
-      setLoading(true)
-      const response = await deleteContact(contactId)
-      if (response) {
-        const {data: contactsData} = await getAllContacts()
-        setContacts(contactsData)
-        setLoading(false)
+
+      const updateContact = contacts.filter((item) => item.id !== contactId);
+      setContacts(updateContact)
+      setFilterdContacts(updateContact)
+
+      //Sending Delete Request to server
+      const { status } = await deleteContact(contactId)
+
+      if (status !== 200) {
+        setContacts(allContact)
+        setFilterdContacts(allContact)
       }
     }catch(err){
       console.log(err.message);
+
+      setContacts(allContact)
+      setFilterdContacts(allContact)
     }
   }
 

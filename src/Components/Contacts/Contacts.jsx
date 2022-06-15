@@ -7,7 +7,7 @@ import styles from './Contacts.module.scss';
 import { ContactContext } from '../../Context/ContactContext'; 
 
 const Contacts = () => {
-    const {contacts, loading, deleteContact} = useContext(ContactContext);
+    const {filterdContacts, loading, deleteContact} = useContext(ContactContext);
     return (
         <>
             <section className="container">
@@ -19,7 +19,7 @@ const Contacts = () => {
                 {loading ? <Spinner/> : (
                     <div className="container">
                         <div className="row">
-                            {contacts.length > 0 ? contacts.map((contact) => (
+                            {filterdContacts.length > 0 ? filterdContacts.map((contact) => (
                                 <Contact key={contact.id} deleteContact={() => deleteContact(contact.id)} contact={contact}/>
                             )): (
                                 <ContactNotFound/>
