@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { ContactContext } from '../../Context/ContactContext';
 import { getContact, getGroup } from '../../Services/contactServices';
 import Spinner from '../Spinner/Spinner';
 import styles from '../ViewContact/viewContact.module.scss'
@@ -8,26 +8,27 @@ import styles from '../ViewContact/viewContact.module.scss'
 const ViewContact = () => {
     const { contactId } = useParams();
     const [state, setState] = useState({
-        loading: false,
         contact: {},
         group: {},
     })
+    const { loading, setLoading } = useContext(ContactContext)
 
     useEffect(() => {
         const fetchData = async () => {
             try{
-                setState({...state, loading: true})
+                setLoading(true)
                 const {data: contactData} = await getContact(contactId)
                 const {data: groupData} = await getGroup(contactData.group)
+                setLoading(false)
                 setState({...state, loading: false, contact: contactData, group: groupData})
             }catch(err){
                 console.log(err.message);
-                setState({...state, loading: false})
+                setLoading(false)
             }
         }
         fetchData()
     }, [])
-    const {loading, contact, group} = state
+    const { contact, group} = state
     return (
         <>
             {loading ? (
