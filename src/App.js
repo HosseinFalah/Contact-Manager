@@ -111,7 +111,8 @@ const App = () => {
       loading,
       setLoading,
       contact,
-      setContact,
+      setContacts,
+      setFilterdContacts,
       contactQuery,
       contacts,
       filterdContacts,
@@ -120,7 +121,6 @@ const App = () => {
       deleteContact: confirmDelete,
       createContact: createContactForm,
       contactSearch,
-
     }}>
       <Navbar />
         <Routes>

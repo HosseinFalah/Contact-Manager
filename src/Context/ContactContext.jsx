@@ -4,14 +4,14 @@ export const ContactContext = createContext({
     loading: false,
     setLoading: () => {},
     contact: {},
-    setContact: () => {},
+    setContacts: () => {},
+    setFilterdContacts: () => {},
     contacts: [],
     filterdContacts: [],
     contactQuery: {},
     groups: [],
     onContactChange: () => {},
     deleteContact: () => {},
-    EditContact: () => {},
     createContact: () => {},
     contactSearch: () => {}
 })

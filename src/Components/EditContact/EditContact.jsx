@@ -1,60 +1,59 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { getAllGroups, getContact, updateContact } from '../../Services/contactServices';
+import { ContactContext } from '../../Context/ContactContext';
+import { getContact, updateContact } from '../../Services/contactServices';
 import Spinner from '../Spinner/Spinner';
 
-const EditContact = ({forceRender, setForceRender}) => {
+const EditContact = () => {
     const { contactId } = useParams();
     const navigate = useNavigate();
-    const [state, setState] = useState({
-        loading: false,
-        contact: {
-            name: "",
-            photo: "",
-            mobile: "",
-            email: "",
-            group: "",
-        },
-        groups: [],
-    })
+    const { contacts, setContacts, setFilterdContacts, loading, setLoading, groups} = useContext(ContactContext);
+    const [contact, setContact] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
             try{
-                setState({...state, loading: true})
+                setLoading(true)
                 const {data: contactData} = await getContact(contactId)
-                const {data: groupData} = await getAllGroups(contactData.group)
-                setState({...state, loading: false, contact: contactData, groups: groupData})
+                setLoading(false)
+                setContact(contactData)
             }catch(err){
                 console.log(err.message);
-                setState({...state, loading: false})
+                setLoading(false)
             }
         }
         fetchData()
     }, [])
 
-    const setContactInfo = event => {
-        setState({...state, contact: {...state.contact, [event.target.name]: [event.target.value]}})
+    const onContactChange = event => {
+        setContact({...contact, [event.target.name] : event.target.value})
     }
 
     const submitForm = async event => {
         event.preventDefault()
         try{
-            setState({...state, loading: true})
-            const { data } = await updateContact(state.contact, contactId)
-            setState({...state, loading: false})
-            if (data){
-                setForceRender(!forceRender)
-                navigate("/contacts")
+            setLoading(true)
+            //copry state
+            //update state
+            //send request
+            // status === 200 do nothing
+            // status === error setState(copyState)
+            const { data, status } = await updateContact(contact, contactId)
+            if (status === 200){
+                setLoading(false);
+                const allContacts = [...contacts];
+                const contactIndex = allContacts.findIndex(item => item.id === +contactId)
+                allContacts[contactIndex] = {...data};
+                setContacts(allContacts)
+                setFilterdContacts(allContacts)
+                navigate("/contacts");
             }
         }catch(err){
             console.log(err.message);
-            setState({...state, loading: false})
+            setLoading(false)
         }
     }
 
-    const {loading, contact, groups} = state
     return (
         <>
             {loading ? (
@@ -69,22 +68,22 @@ const EditContact = ({forceRender, setForceRender}) => {
                                     <div className="col">
                                         <form autoComplete="off" onSubmit={submitForm}>
                                             <div className="mb-2">
-                                                <input name="fullname" type="text" className="form-control" placeholder="نام و نام خانوادگی" required={true} value={contact.fullname} onChange={setContactInfo}/>
+                                                <input name="fullname" type="text" className="form-control" placeholder="نام و نام خانوادگی" required={true} value={contact.fullname} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="photo" type="text" className="form-control" placeholder="آدرس تصویر" required={true} value={contact.photo} onChange={setContactInfo}/>
+                                                <input name="photo" type="text" className="form-control" placeholder="آدرس تصویر" required={true} value={contact.photo} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="mobile" type="tel" dir="rtl" className="form-control" placeholder="شماره موبایل" required={true} value={contact.mobile} onChange={setContactInfo}/>
+                                                <input name="mobile" type="tel" dir="rtl" className="form-control" placeholder="شماره موبایل" required={true} value={contact.mobile} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="email" type="email" dir="rtl" className="form-control" placeholder="آدرس ایمیل" required={true} value={contact.email} onChange={setContactInfo}/>
+                                                <input name="email" type="email" dir="rtl" className="form-control" placeholder="آدرس ایمیل" required={true} value={contact.email} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="job" type="text" className="form-control" placeholder="شغل" required={true} value={contact.job} onChange={setContactInfo}/>
+                                                <input name="job" type="text" className="form-control" placeholder="شغل" required={true} value={contact.job} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <select name="group" className="form-control" required={true} value={contact.group} onChange={setContactInfo}>
+                                                <select name="group" className="form-control" required={true} value={contact.group} onChange={onContactChange}>
                                                     <option value="" className="text-white">انتخاب گروه</option>
                                                     {groups.length > 0 && groups.map((group) => (
                                                         <option key={group.id} value={group.id}>{group.name}</option>

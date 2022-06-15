@@ -1,15 +1,6 @@
 {
   "contacts": [
     {
-      "fullname": "محمد اردوخانی",
-      "photo": "https://toplearn.com/img/user/teachers/5330_8314f4b2-34a0-8873-aaf8-39e35e71fa6b_%D9%85%D8%AD%D9%85%D8%AF_%D8%A7%D8%B1%D8%AF%D9%88%D8%AE%D8%A7%D9%86%DB%8C.png",
-      "mobile": "09222465963",
-      "email": "mohammdOrdokani@gmail.com",
-      "job": "برنامه نویس و مدرس ماکروسافت",
-      "group": "1",
-      "id": 1
-    },
-    {
       "fullname": "حسین فلاح",
       "photo": "https://avatars.githubusercontent.com/u/98707258?v=4",
       "mobile": "09922477517",
