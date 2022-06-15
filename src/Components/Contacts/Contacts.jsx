@@ -1,11 +1,13 @@
-import React from 'react';
-import styles from './Contacts.module.scss';
+import React, { useContext } from 'react';
 import Contact from '../Contact/Contact';
 import ContactNotFound from '../ContactNotFound/ContactNotFound';
 import Spinner from './../Spinner/Spinner';
 import { Link } from 'react-router-dom';
+import styles from './Contacts.module.scss';
+import { ContactContext } from '../../Context/ContactContext'; 
 
-const Contacts = ({contacts, loading, RemoveContact}) => {
+const Contacts = () => {
+    const {contacts, loading, deleteContact} = useContext(ContactContext);
     return (
         <>
             <section className="container">
@@ -18,7 +20,7 @@ const Contacts = ({contacts, loading, RemoveContact}) => {
                     <div className="container">
                         <div className="row">
                             {contacts.length > 0 ? contacts.map((contact) => (
-                                <Contact key={contact.id} RemoveContact={() => RemoveContact(contact.id)} contact={contact}/>
+                                <Contact key={contact.id} deleteContact={() => deleteContact(contact.id)} contact={contact}/>
                             )): (
                                 <ContactNotFound/>
                             )}
