@@ -13,7 +13,7 @@ const Contacts = () => {
             <section className="container">
                 <div className="row">
                     <div className="col-md-4 p-4">
-                        <Link to={"/contacts/add"} className={`${styles.btn} ${styles.btn__purple}`}>ساخت مخاطب جدید<i className="fa fa-plus-circle mx-2"></i></Link>
+                        <Link to={"/contacts/add"} className={`${styles.btn} ${styles.btn__purple}`}>Create Contact<i className="fa fa-plus-circle mx-2"></i></Link>
                     </div>
                 </div>
                 {loading ? <Spinner/> : (

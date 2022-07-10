@@ -63,36 +63,36 @@ const EditContact = () => {
                     {Object.keys(contact).length > 0 && (
                         <section className="p-3">
                             <div className="container">
-                                <h4 className="text-success text-center border-bottom border-info pb-3">ویرایش مخاطب</h4>
+                                <h4 className="text-success text-center border-bottom border-info pb-3">Edit Contact</h4>
                                 <div className="row pt-2">
                                     <div className="col">
                                         <form autoComplete="off" onSubmit={submitForm}>
                                             <div className="mb-2">
-                                                <input name="fullname" type="text" className="form-control" placeholder="نام و نام خانوادگی" required={true} value={contact.fullname} onChange={onContactChange}/>
+                                                <input name="fullname" type="text" className="form-control" placeholder="FirstName And LastName" required={true} value={contact.fullname} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="photo" type="text" className="form-control" placeholder="آدرس تصویر" required={true} value={contact.photo} onChange={onContactChange}/>
+                                                <input name="photo" type="text" className="form-control" placeholder="ImageAddress" required={true} value={contact.photo} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="mobile" type="tel" dir="rtl" className="form-control" placeholder="شماره موبایل" required={true} value={contact.mobile} onChange={onContactChange}/>
+                                                <input name="mobile" type="tel" className="form-control" placeholder="PhoneNumber" required={true} value={contact.mobile} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="email" type="email" dir="rtl" className="form-control" placeholder="آدرس ایمیل" required={true} value={contact.email} onChange={onContactChange}/>
+                                                <input name="email" type="email" className="form-control" placeholder="E-mail" required={true} value={contact.email} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
-                                                <input name="job" type="text" className="form-control" placeholder="شغل" required={true} value={contact.job} onChange={onContactChange}/>
+                                                <input name="job" type="text" className="form-control" placeholder="Jobs" required={true} value={contact.job} onChange={onContactChange}/>
                                             </div>
                                             <div className="mb-2">
                                                 <select name="group" className="form-control" required={true} value={contact.group} onChange={onContactChange}>
-                                                    <option value="" className="text-white">انتخاب گروه</option>
+                                                    <option value="" className="text-white">Select Groups</option>
                                                     {groups.length > 0 && groups.map((group) => (
                                                         <option key={group.id} value={group.id}>{group.name}</option>
                                                     ))}
                                                 </select>
                                             </div>
                                             <div className="mt-1">
-                                                <button type="submit" className="btn btn-outline-warning me-2">ویرایش مخاطب</button>
-                                                <Link to={"/contacts"} type="submit" className="btn btn-outline-danger">انصراف</Link>
+                                                <button type="submit" className="btn btn-outline-warning me-2">Edit Contact</button>
+                                                <Link to={"/contacts"} type="submit" className="btn btn-outline-danger">Cancel</Link>
                                             </div>
                                         </form>
                                     </div>

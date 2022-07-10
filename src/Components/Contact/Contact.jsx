@@ -13,9 +13,9 @@ const Contact = ({contact, deleteContact}) => {
                             </div>
                             <div className="col-md-7 col-sm-7">
                                 <ul className="list-group">
-                                    <li className="list-group-item list-group-item-dark">نام خانوادگی: <span className='fw-bold'>{contact.fullname}</span></li>
-                                    <li className="list-group-item list-group-item-dark">شماره تماس: <span className='fw-bold'>{contact.mobile}</span></li>
-                                    <li className="list-group-item list-group-item-dark">ایمیل: <span className='fw-bold'>{contact.email}</span></li>
+                                    <li className="list-group-item list-group-item-dark">Last name: <span className='fw-bold'>{contact.fullname}</span></li>
+                                    <li className="list-group-item list-group-item-dark">Phone number: <span className='fw-bold'>{contact.mobile}</span></li>
+                                    <li className="list-group-item list-group-item-dark">Email: <span className='fw-bold'>{contact.email}</span></li>
                                 </ul>
                             </div>
                             <div className="col-md-1 col-sm-1 d-flex flex-column align-items-center">

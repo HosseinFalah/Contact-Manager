@@ -38,7 +38,7 @@ const ViewContact = () => {
                     {Object.keys(contact).length > 0 && (
                         <section className="p-3">
                             <div className="container">
-                                <h4 className="text-success text-center border-bottom border-info pb-3">اطلاعات مخاطب</h4>
+                                <h4 className="text-success text-center border-bottom border-info pb-3">Contact Information</h4>
                                 <div className="row pt-2">
                                     <div className="col">
                                         <div className={`card my-2 ${styles.bg__card}`}>
@@ -49,14 +49,14 @@ const ViewContact = () => {
                                                     </div>
                                                     <div className="col-md-8 col-sm-8">
                                                         <ul className="list-group">
-                                                            <li className="list-group-item list-group-item-dark">نام خانوادگی: <span className='fw-bold'>{contact.fullname}</span></li>
-                                                            <li className="list-group-item list-group-item-dark">شماره تماس: <span className='fw-bold'>{contact.mobile}</span></li>
-                                                            <li className="list-group-item list-group-item-dark">ایمیل: <span className='fw-bold'>{contact.email}</span></li>
-                                                            <li className="list-group-item list-group-item-dark">شغل: <span className='fw-bold'>{contact.job}</span></li>
-                                                            <li className="list-group-item list-group-item-dark">گروه: <span className='fw-bold'>{group.name}</span></li>
+                                                            <li className="list-group-item list-group-item-dark">FirstName And LastName: <span className='fw-bold'>{contact.fullname}</span></li>
+                                                            <li className="list-group-item list-group-item-dark">PhoneNumber: <span className='fw-bold'>{contact.mobile}</span></li>
+                                                            <li className="list-group-item list-group-item-dark">E-mail: <span className='fw-bold'>{contact.email}</span></li>
+                                                            <li className="list-group-item list-group-item-dark">Jobs: <span className='fw-bold'>{contact.job}</span></li>
+                                                            <li className="list-group-item list-group-item-dark">Groups: <span className='fw-bold'>{group.name}</span></li>
                                                         </ul>
                                                     </div>
-                                                    <Link to={"/contacts"} className="btn btn-outline-primary mt-2">بازگشت به صفحه اصلی</Link>
+                                                    <Link to={"/contacts"} className="btn btn-outline-primary mt-2">Return to main page</Link>
                                                 </div>
                                             </div>
                                         </div>

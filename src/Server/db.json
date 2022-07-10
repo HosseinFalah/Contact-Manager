@@ -1,7 +1,7 @@
 {
   "contacts": [
     {
-      "fullname": "حسین فلاح",
+      "fullname": "Hossein Falah",
       "photo": "https://avatars.githubusercontent.com/u/98707258?v=4",
       "mobile": "09922477517",
       "email": "hosseinfalah2021@gmail.com",
@@ -10,7 +10,7 @@
       "id": 3
     },
     {
-      "fullname": "امیر رضا حقی",
+      "fullname": "Amir Reza Haqi",
       "photo": [
         "https://avatars.githubusercontent.com/u/88787993?v=4"
       ],
@@ -24,23 +24,23 @@
   "groups": [
     {
       "id": 1,
-      "name": "همکار"
+      "name": "Colleague"
     },
     {
       "id": 2,
-      "name": "دوست"
+      "name": "Friend"
     },
     {
       "id": 3,
-      "name": "فامیل"
+      "name": "Family"
     },
     {
       "id": 4,
-      "name": "سرویس"
+      "name": "Service"
     },
     {
       "id": 5,
-      "name": "آشنا"
+      "name": "Familiar"
     }
   ]
 }

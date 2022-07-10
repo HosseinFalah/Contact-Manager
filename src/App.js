@@ -88,20 +88,20 @@ const App = () => {
 
   const confirmDelete = (contactId) => {
     Swal.fire({
-      title: `آیا مطمعن هستی؟`,
-      text: "این عملیات دیگر قابل برگشت نیست!",
+      title: `Are you sure؟`,
+      text: "This operation cannot be reversed!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'حذف مخاطب'
+      confirmButtonText: 'Remove Contact'
     }).then((result) => {
       if (result.isConfirmed) {
         console.log(result);
         removeContact(contactId)
         Swal.fire(
-          '!عملیات با موفقعیت انجام شد',
-          '!مخاطب مورد نظر شما حذف شد',
+          '!The operation was done successfully',
+          '!Your desired contact has been deleted',
           'success'
         )
       }
