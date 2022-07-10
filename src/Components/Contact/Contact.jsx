@@ -7,7 +7,7 @@ const Contact = ({contact, deleteContact}) => {
             <div className="col col-md-12 col-xl-6">
                 <div className={`card my-2 ${styles.bg__card}`}>
                     <div className="card-body">
-                        <div className="row align-items-center justify-content-around">
+                        <div className="row align-items-center gy-3 justify-content-around">
                             <div className="col-md-4 col-sm-4">
                                 <img src={contact.photo} className="img-fluid rounded" alt={contact.fullname} />
                             </div>
