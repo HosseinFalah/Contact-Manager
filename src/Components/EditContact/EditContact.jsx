@@ -65,7 +65,7 @@ const EditContact = () => {
                             <div className="container">
                                 <h4 className="text-success text-center border-bottom border-info pb-3">Edit Contact</h4>
                                 <div className="row pt-2">
-                                    <div className="col">
+                                    <div className="col-12 col-lg-6 mb-2">
                                         <form autoComplete="off" onSubmit={submitForm}>
                                             <div className="mb-2">
                                                 <input name="fullname" type="text" className="form-control" placeholder="FirstName And LastName" required={true} value={contact.fullname} onChange={onContactChange}/>
@@ -96,7 +96,7 @@ const EditContact = () => {
                                             </div>
                                         </form>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-lg-6">
                                         <img src={contact.photo} className="img-fluid" alt="Create-Contact" />
                                     </div>
                                 </div>

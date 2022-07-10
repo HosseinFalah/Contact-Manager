@@ -1,23 +1,35 @@
-import SearchContact from './../SearchContact/SearchContact';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import SearchContact from '../SearchContact/SearchContact';
+import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
-const Navbar = () => {
+const NavBar = () => {
+    const [ nav, setNav ] = useState(false);
+
+    const handleNav = () => {
+        setNav(!nav)
+    }
+
     const location = useLocation();
     return (
         <header>
-            <nav className="navbar navbar-dark bg-dark navbar-expand-sm shadow-lg">
-                <div className="container">
-                    <Link to={'/contacts'} className="navbar-brand text-white text-center d-flex align-items-center mt-2"><i className="fa fa-address-book text-warning me-2"></i>Contact Management</Link>
-                    {
-                        location.pathname === "/contacts" ? (
-                            <SearchContact/>
-                        ) : null
-                    }
-                </div>
-            </nav>
+            <Navbar bg="dark" variant="dark" expand="lg">
+                <Container>
+                    <Link to={'/contacts'} className="navbar-brand text-white text-center d-flex align-items-center mt-2"><Navbar.Brand><i className="fa fa-address-book text-warning me-2"></i>Contact Management</Navbar.Brand></Link>
+                    <Navbar.Toggle  aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav" onClick={handleNav}>
+                        {
+                            location.pathname === "/contacts" ? (
+                                <SearchContact/>
+                            ) : null
+                        }
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </header>
     );
 }
  
-export default Navbar;
+export default NavBar;

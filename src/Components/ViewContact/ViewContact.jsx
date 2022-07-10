@@ -44,10 +44,10 @@ const ViewContact = () => {
                                         <div className={`card my-2 ${styles.bg__card}`}>
                                             <div className="card-body">
                                                 <div className="row align-items-center justify-content-around">
-                                                    <div className="col-md-4 col-sm-4">
-                                                        <img src={contact.photo} className="img-fluid rounded" alt={contact.fullname} />
+                                                    <div className="col-12 col-md-4">
+                                                        <img src={contact.photo} className="img-fluid rounded mb-2" alt={contact.fullname} />
                                                     </div>
-                                                    <div className="col-md-8 col-sm-8">
+                                                    <div className="col-12 col-md-8">
                                                         <ul className="list-group">
                                                             <li className="list-group-item list-group-item-dark">FirstName And LastName: <span className='fw-bold'>{contact.fullname}</span></li>
                                                             <li className="list-group-item list-group-item-dark">PhoneNumber: <span className='fw-bold'>{contact.mobile}</span></li>

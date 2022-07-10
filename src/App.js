@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Navbar, Contacts, AddContact, ViewContact, EditContact } from './Components';
+import { Contacts, AddContact, ViewContact, EditContact, NavBar } from './Components';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getAllContacts, getAllGroups, createContact, deleteContact } from './Services/contactServices';
 import { ContactContext } from './Context/ContactContext';
@@ -132,7 +132,7 @@ const App = () => {
       createContact: createContactForm,
       contactSearch,
     }}>
-      <Navbar />
+      <NavBar />
         <Routes>
           <Route path="/" element={<Navigate to="/contacts"/>}/>
           <Route path="/contacts" element={<Contacts/>}/>
