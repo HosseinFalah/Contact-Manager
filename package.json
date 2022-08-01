@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
     "font-awesome": "^4.7.0",
+    "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "node-sass": "^7.0.1",
     "react": "^18.1.0",
@@ -18,7 +19,9 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sweetalert2": "^11.4.17",
-    "web-vitals": "^2.1.4"
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
