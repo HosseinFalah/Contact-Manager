@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getAllContacts, getAllGroups, createContact, deleteContact } from './Services/contactServices';
 import { ContactContext } from './Context/ContactContext';
 import Swal from 'sweetalert2';
+import _ from "lodash";
 import './App.scss';
 
 const App = () => {
@@ -107,20 +108,13 @@ const App = () => {
     })
   }
 
-  let filterTimeOut;
-
-  const contactSearch = query => {
-
-    clearTimeout(filterTimeOut)
-    
+  const contactSearch = _.debounce(query => {    
     if (!query) return setFilterdContacts([...contacts])
 
-    filterTimeOut = setTimeout(() => {      
-      setFilterdContacts(contacts.filter(contact => {
-        return contact.fullname.toLowerCase().includes(query.toLowerCase())
-      }))
-    }, 1000);
-  }
+    setFilterdContacts(contacts.filter(contact => {
+      return contact.fullname.toLowerCase().includes(query.toLowerCase())
+    }))
+  }, 1000)
 
   return (
     <ContactContext.Provider value={{
