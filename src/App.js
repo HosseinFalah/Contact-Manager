@@ -37,18 +37,16 @@ const App = () => {
     ferchData()
   }, [])
 
-  const createContactForm = async event => {
-    event.preventDefault()
+  const createContactForm = async (values) => {
     try{
-      setLoading((prevLoading) => !prevLoading);
-      const {status, data} = await createContact(contact)
+      setLoading((prevLoading) => !prevLoading);      
+      const {status, data} = await createContact(values)
 
       if (status === 201) {
         const allContacts = [...contacts, data];
         setContacts(allContacts)
         setFilterdContacts(allContacts)
 
-        setContact({});
         setLoading((prevLoading) => !prevLoading);
         navigate("/contacts");
       }
