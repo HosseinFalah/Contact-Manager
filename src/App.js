@@ -107,10 +107,19 @@ const App = () => {
     })
   }
 
+  let filterTimeOut;
+
   const contactSearch = query => {
-    setFilterdContacts(contacts.filter(contact => {
-      return contact.fullname.toLowerCase().includes(query.toLowerCase())
-    }))
+
+    clearTimeout(filterTimeOut)
+    
+    if (!query) return setFilterdContacts([...contacts])
+
+    filterTimeOut = setTimeout(() => {      
+      setFilterdContacts(contacts.filter(contact => {
+        return contact.fullname.toLowerCase().includes(query.toLowerCase())
+      }))
+    }, 1000);
   }
 
   return (
