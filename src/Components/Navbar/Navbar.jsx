@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import SearchContact from '../SearchContact/SearchContact';
 import { Link, useLocation } from 'react-router-dom';
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 
