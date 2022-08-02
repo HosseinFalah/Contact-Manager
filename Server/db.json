@@ -73,6 +73,15 @@
       "job": "Python Developer",
       "group": "1",
       "id": 11
+    },
+    {
+      "fullname": "Amirhossein Amiri",
+      "photo": "https://avatars.githubusercontent.com/u/78421033?v=4",
+      "mobile": "09145688996",
+      "email": "amirhamiri74@gmail.com",
+      "job": "Backend developer(Python,Django) Teacher",
+      "group": "1",
+      "id": 12
     }
   ],
   "groups": [
