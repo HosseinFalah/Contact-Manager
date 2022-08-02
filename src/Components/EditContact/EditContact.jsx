@@ -5,6 +5,7 @@ import { getContact, updateContact } from '../../Services/contactServices';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { contactSchema } from '../../Validations/contactValidation';
 import Spinner from '../Spinner/Spinner';
+import { toast } from 'react-toastify';
 
 const EditContact = () => {
     const { contactId } = useParams();
@@ -38,6 +39,7 @@ const EditContact = () => {
             const { data, status } = await updateContact(values, contactId)
             if (status === 200){
                 setLoading(false);
+                toast.info("Contact updated successfully", { icon: "✔" })
                 const allContacts = [...contacts];
                 const contactIndex = allContacts.findIndex(item => item.id === +contactId)
                 allContacts[contactIndex] = {...data};

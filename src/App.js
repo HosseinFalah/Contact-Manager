@@ -3,6 +3,7 @@ import { Contacts, AddContact, ViewContact, EditContact, NavBar } from './Compon
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getAllContacts, getAllGroups, createContact, deleteContact } from './Services/contactServices';
 import { ContactContext } from './Context/ContactContext';
+import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import _ from "lodash";
 import './App.scss';
@@ -43,6 +44,7 @@ const App = () => {
       const {status, data} = await createContact(values)
 
       if (status === 201) {
+        toast.success("Contact created successfully", { icon: "😍" })
         const allContacts = [...contacts, data];
         setContacts(allContacts)
         setFilterdContacts(allContacts)
@@ -71,6 +73,8 @@ const App = () => {
 
       //Sending Delete Request to server
       const { status } = await deleteContact(contactId)
+
+      toast.error("Contact deleted successfully", { icon: "💣" })
 
       if (status !== 200) {
         setContacts(allContact)
@@ -129,6 +133,7 @@ const App = () => {
       createContact: createContactForm,
       contactSearch,
     }}>
+      <ToastContainer theme="colored"/>
       <NavBar />
         <Routes>
           <Route path="/" element={<Navigate to="/contacts"/>}/>
