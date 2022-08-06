@@ -4,7 +4,6 @@ import { ContactContext } from "../../Context/ContactContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { contactSchema } from "../../Validations/contactValidation";
 import Spinner from "../Spinner/Spinner";
-import './AddContact.scss'
 
 const AddContact = () => {
     const { loading, groups, createContact } = useContext(ContactContext);

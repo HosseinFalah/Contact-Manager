@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import styles  from './Contact.module.scss'
 
 const Contact = ({contact, deleteContact}) => {
     return (
         <>
             <div className="col col-md-12 col-xl-6">
-                <div className={`card my-2 ${styles.bg__card}`}>
+                <div className="card my-2 bg__card">
                     <div className="card-body">
                         <div className="row align-items-center gy-3 justify-content-around">
                             <div className="col-md-4 col-sm-4">

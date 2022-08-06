@@ -6,7 +6,6 @@ import { ContactContext } from './Context/ContactContext';
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import _ from "lodash";
-import './App.scss';
 
 const App = () => {
 

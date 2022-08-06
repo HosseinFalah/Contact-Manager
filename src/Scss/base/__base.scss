@@ -1,0 +1,69 @@
+body {
+  font-family: "Vazir";
+  background: $Background;
+}
+
+.bg__card{
+    background: $seconderyColor;
+}
+
+.bg__secondery{
+    background: $seconderyColor;
+}
+
+.bg__card{
+    background: $seconderyColor;
+}
+
+.bg__card{
+    background: $seconderyColor;
+}
+
+.form_control{
+    background-color: $seconderyColor;
+    border: none;
+    outline: none;
+    color: $Foreground;
+    padding: .50rem 1rem;
+    border-radius: 10px 0 0 0;
+    transition: all 0.3s ease-in-out;
+
+    &:focus{
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0px 0px 3px 3px $CurrentLine;
+    }
+}
+
+.btn{
+    @include btn(10px, 10px, none);
+
+    &__purple{
+        @extend .btn;
+        background: $Purple;
+        color: $Foreground;
+        transition: all 0.4s ease-in-out;
+        text-decoration: none;
+
+        &:hover{
+            background: #9952d8;
+            color: $Foreground;
+        }
+    }
+}
+
+.form-control{
+    background: $seconderyColor;
+    color: $Foreground;
+
+    &::placeholder{
+        color: $Foreground;
+    }
+    
+    &:focus{
+        border: none;
+        background: $seconderyColor;
+        box-shadow: none;
+        color: $Foreground;
+    }
+}
