@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:9000";
+const SERVER_URL = "https://elegant-stonebraker-tgpf3wiha.iran.liara.run";
 
 // @desc Get All Contacts
 // @route GET https://localhost:9000/contacts:contactid
